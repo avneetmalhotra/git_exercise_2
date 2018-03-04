@@ -1,0 +1,46 @@
+1. Create a repository and push to github.
+$ mkdir git_exercise2
+$ cd git_exercise2
+
+$ git init
+$ git remote add origin https://github.com/avneetmalhotra/git_exercise_2.git
+$ git push origin --all
+
+
+2. Create two files in master branch, then create a tag 1.0.0 for first release from master.
+$ touch one.txt
+$ touch two.txt
+$ git add .
+$ git commit -m 'added one.txt & two.txt'
+$ git tag 1.0.0
+
+
+3. Now, perform some changes in previous files and create another tag 1.0.1.
+## manually made changes to both files
+$ git add -u
+$ git git commit -m 'modified one.txt & two.txt'
+$ git tag 1.0.1
+
+
+4. Now, create another file file3 and create a tag 1.1.0.
+$ touch third.txt
+$ git add third.txt
+$ git commit -m 'added third.txt
+$ git tag 1.1.0
+
+
+5.Now in 1.0.1 release, do some changes in existing files and create another tag 1.0.2.
+$ git co -b bug_fix 1.0.1
+## one.txt & two.txt manually modified
+$ git add -u
+$ git commit -m 'v-1.0.1 bug fixed'
+$ got checkout master
+$ git rebase bug_fix
+$ git tag 1.0.2 84cc72f
+
+
+6. Also do some changes in release 1.1.0, create a tag for next release 1.1.1.
+$ echo 'some changes in version 1.1.0' > third.txt
+$ git add -u
+$ git commit -m 'v-1.1.0 updated to v-1.1.1'
+$ git tag 1.1.1
